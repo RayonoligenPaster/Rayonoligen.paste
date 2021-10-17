@@ -16,8 +16,8 @@ local k = {}
 local l = {Scrolling = false, options = {}}
 
 function l:CreateUI()
-    if not isfolder("pepsi") then
-        makefolder("pepsi")
+    if not isfolder("RayoWare.Win") then
+        makefolder("RayoWare.Win")
     end
     local m = Instance.new("ScreenGui")
     m.Name = "RayoWare.win"
