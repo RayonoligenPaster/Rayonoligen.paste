@@ -902,7 +902,7 @@ a.InputBegan:connect(function(w)
                                     game.StarterGui:SetCore("SendNotification", {
                                     Title = "JakolWare's Notif:";
                                     Text = "ruwen cummed on me";
-                                    Icon = "rbxassetid://6994449196";
+                                    Icon = "rbxassetid://7770050441";
                                     Duration = 3;
                                     })
                                     local ebsfx = Instance.new("Sound")
