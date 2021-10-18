@@ -900,8 +900,8 @@ a.InputBegan:connect(function(w)
                                     aQ.Color = Color3.new(0.2, 0.9, 0.2)
                                     wait()
                                     game.StarterGui:SetCore("SendNotification", {
-                                    Title = "JakolWare's Notification:";
-                                    Text = "edgebugged real!";
+                                    Title = "JakolWare's Notif:";
+                                    Text = "ruwen cummed on me";
                                     Icon = "rbxassetid://6994449196";
                                     Duration = 3;
                                     })
