@@ -16,11 +16,11 @@ local k = {}
 local l = {Scrolling = false, options = {}}
 
 function l:CreateUI()
-    if not isfolder("RayoWare.Win") then
-        makefolder("RayoWare.Win")
+    if not isfolder("JakolWare") then
+        makefolder("JakolWare")
     end
     local m = Instance.new("ScreenGui")
-    m.Name = "RayoWare.win"
+    m.Name = "JakolWare"
     local n = Instance.new("Frame")
     n.Name = "main"
     n.Size = UDim2.new(0, 320, 0, 308)
@@ -55,7 +55,7 @@ function l:CreateUI()
     q.Parent = n
     local r = Instance.new("TextLabel")
     r.Name = "name"
-    r.Text = "RayoWare.win"
+    r.Text = "JakolWare.win"
     r.TextColor3 = Color3.new(1, 1, 1)
     r.Size = UDim2.new(1, 0, 0, 20)
     r.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
@@ -900,7 +900,7 @@ a.InputBegan:connect(function(w)
                                     aQ.Color = Color3.new(0.2, 0.9, 0.2)
                                     wait()
                                     game.StarterGui:SetCore("SendNotification", {
-                                    Title = "RayoWare.win";
+                                    Title = "JakolWare's Notification:";
                                     Text = "edgebugged real!";
                                     Icon = "rbxassetid://6994449196";
                                     Duration = 3;
@@ -2194,7 +2194,7 @@ Text.Position = UDim2.new(0.0381064788, 0, 0, 0)
 Text.Size = UDim2.new(0.373076916, 0, 1, 0)
 Text.ZIndex = 4
 Text.Font = Enum.Font.Code
-Text.Text = "RayoWare.win"
+Text.Text = "JakolWare.win"
 Text.TextColor3 = Color3.fromRGB(65025, 65025, 65025)
 Text.TextSize = 14.000
 Text.TextStrokeTransparency = 0.000
