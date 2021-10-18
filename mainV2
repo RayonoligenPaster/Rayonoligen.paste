@@ -20,7 +20,7 @@ function l:CreateUI()
         makefolder("JakolWare")
     end
     local m = Instance.new("ScreenGui")
-    m.Name = "JakolWare"
+    m.Name = "JakolWare.win"
     local n = Instance.new("Frame")
     n.Name = "main"
     n.Size = UDim2.new(0, 320, 0, 308)
@@ -1470,19 +1470,19 @@ aE:CreateToggle("Remove Killers", function(K)
         local Clips = workspace.Map.Clips; Clips.Name = "FAT"; Clips.Parent = nil
         local Killers = workspace.Map.Killers; Killers.Name = "FAT"; Killers.Parent = nil
         if K == true then
-		    for i,v in pairs(Clips:GetChildren()) do
-				if v:IsA("BasePart") then
-					v:Remove()
-				end
-			end
-			for i,v in pairs(Killers:GetChildren()) do
-				if v:IsA("BasePart") then
-					v:Remove()
-				end
-			end
-		end
-		Killers.Name = "Killers"; Killers.Parent = workspace.Map
-		Clips.Name = "Clips"; Clips.Parent = workspace.Map
+            for i,v in pairs(Clips:GetChildren()) do
+                if v:IsA("BasePart") then
+                    v:Remove()
+                end
+            end
+            for i,v in pairs(Killers:GetChildren()) do
+                if v:IsA("BasePart") then
+                    v:Remove()
+                end
+            end
+        end
+        Killers.Name = "Killers"; Killers.Parent = workspace.Map
+        Clips.Name = "Clips"; Clips.Parent = workspace.Map
     end)
 end)
 
@@ -1663,30 +1663,30 @@ game.ReplicatedStorage.Viewmodels["v_C4Halloween"].HumanoidRootPart.Transparency
 aE:CreateToggle("Kill All", function(K)
     if K then
         KillAllLoop = game:GetService("RunService").RenderStepped:Connect(function()
-		    pcall(function()
-			    for i,v in pairs(game.Players:GetChildren()) do
-					if v.Character and v.Character.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.EquippedTool and v.Team ~= game.Players.LocalPlayer.Team then
-						local Arguments = {
-							[1] = v.Character.Head,
-							[2] = v.Character.Head.Position,
-							[3] = game.Players.LocalPlayer.Character.EquippedTool.Value,
-							[4] = 100,
-							[5] = game.Players.LocalPlayer.Character.Gun,
-							[8] = 10, -- Damage Multiplier
-							[9] = false,
-							[10] = false, -- Is Wallbang
-							[11] = Vector3.new(),
-							[12] = 100,
-							[13] = Vector3.new()
-						}
-						game.ReplicatedStorage.Events.HitPart:FireServer(unpack(Arguments))
-					end
-				end
-			end)
-		end)
-	else
-		KillAllLoop:Disconnect()
-	end
+            pcall(function()
+                for i,v in pairs(game.Players:GetChildren()) do
+                    if v.Character and v.Character.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.EquippedTool and v.Team ~= game.Players.LocalPlayer.Team then
+                        local Arguments = {
+                            [1] = v.Character.Head,
+                            [2] = v.Character.Head.Position,
+                            [3] = game.Players.LocalPlayer.Character.EquippedTool.Value,
+                            [4] = 100,
+                            [5] = game.Players.LocalPlayer.Character.Gun,
+                            [8] = 10, -- Damage Multiplier
+                            [9] = false,
+                            [10] = false, -- Is Wallbang
+                            [11] = Vector3.new(),
+                            [12] = 100,
+                            [13] = Vector3.new()
+                        }
+                        game.ReplicatedStorage.Events.HitPart:FireServer(unpack(Arguments))
+                    end
+                end
+            end)
+        end)
+    else
+        KillAllLoop:Disconnect()
+    end
 end)
 
 aE:CreateButton("Rejoin", function()
@@ -1814,44 +1814,44 @@ end)
 aE:CreateToggle("Hit Sound", function(K)
     if K then
         game.Players.LocalPlayer.Additionals.TotalDamage.Changed:Connect(function()
-			if game.Players.LocalPlayer.Additionals.TotalDamage.Value ~= 0 then
-				spawn(function()
-					local hitsound = Instance.new("Sound")
-					hitsound.Parent = game:GetService("SoundService")
-					hitsound.SoundId = "rbxassetid://6607339542"
-					hitsound.Volume = 5
-					hitsound:Play()
-				end)
-			end
+            if game.Players.LocalPlayer.Additionals.TotalDamage.Value ~= 0 then
+                spawn(function()
+                    local hitsound = Instance.new("Sound")
+                    hitsound.Parent = game:GetService("SoundService")
+                    hitsound.SoundId = "rbxassetid://6607339542"
+                    hitsound.Volume = 5
+                    hitsound:Play()
+                end)
+            end
         end)
-	else
-	    hitsound:Destroy()
+    else
+        hitsound:Destroy()
     end
 end)
 
 aE:CreateToggle("Kill Sound", function(K)
     if K then
         game.Players.LocalPlayer.Status.Kills.Changed:Connect(function(val)
-			if val ~= 0 then
-				spawn(function()
-					local death = Instance.new("Sound")
-					death.Parent = game:GetService("SoundService")
-					death.SoundId = "rbxassetid://5902468562"
-					death.Volume = 4
-					death:Play()
-				end)
-			end
+            if val ~= 0 then
+                spawn(function()
+                    local death = Instance.new("Sound")
+                    death.Parent = game:GetService("SoundService")
+                    death.SoundId = "rbxassetid://5902468562"
+                    death.Volume = 4
+                    death:Play()
+                end)
+            end
         end)
-	else
-	    death:Destroy()
+    else
+        death:Destroy()
     end
 end)
 
 aE:CreateToggle("Hit Marker", function(K)
     if K then
         game.Players.LocalPlayer.Additionals.TotalDamage.Changed:Connect(function()
-			if game.Players.LocalPlayer.Additionals.TotalDamage.Value ~= 0 then
-				spawn(function()
+            if game.Players.LocalPlayer.Additionals.TotalDamage.Value ~= 0 then
+                spawn(function()
                     local ScreenGui = Instance.new("ScreenGui")
                     local ImageLabel = Instance.new("ImageLabel")
                     ScreenGui.Parent = game.CoreGui
@@ -1869,7 +1869,7 @@ aE:CreateToggle("Hit Marker", function(K)
                 end)
             else
                 ScreenGui:Remove()
-			end
+            end
         end)
     end
 end)
@@ -2120,24 +2120,24 @@ mt.__namecall = newcclosure(function(self, ...)
     local method = getnamecallmethod()
     local callingscript = getcallingscript()
     local args = {...}
-	
-	if not checkcaller() then
-		if method == "SetPrimaryPartCFrame" and self.Name == "Arms" and ViewmodelEnabled == true then
-			args[1] = args[1] * CFrame.new(Vector3.new(math.rad(ViewmodelX-180), math.rad(ViewmodelY-180), math.rad(ViewmodelZ-180)))
-		elseif method == "FireServer" and self.Name == "HitPart" then
-			spawn(function()
-				if BulletTracersEnabled == true then
-					local beam = funcs:Beam(game.workspace.Camera.Arms.Flash.CFrame.p, args[2])
-				end
-			end)
-		elseif method == "InvokeServer" and self.Name == "Moolah" then
-			return wait(99e99)
-		elseif method == "Kick" then
-			return
-		elseif method == "FireServer" and self.Name == "ControlTurn" and SECHS == true then
-			return
-		end
-	end
+    
+    if not checkcaller() then
+        if method == "SetPrimaryPartCFrame" and self.Name == "Arms" and ViewmodelEnabled == true then
+            args[1] = args[1] * CFrame.new(Vector3.new(math.rad(ViewmodelX-180), math.rad(ViewmodelY-180), math.rad(ViewmodelZ-180)))
+        elseif method == "FireServer" and self.Name == "HitPart" then
+            spawn(function()
+                if BulletTracersEnabled == true then
+                    local beam = funcs:Beam(game.workspace.Camera.Arms.Flash.CFrame.p, args[2])
+                end
+            end)
+        elseif method == "InvokeServer" and self.Name == "Moolah" then
+            return wait(99e99)
+        elseif method == "Kick" then
+            return
+        elseif method == "FireServer" and self.Name == "ControlTurn" and SECHS == true then
+            return
+        end
+    end
     
     return oldNamecall(self, unpack(args))
 end)
@@ -2194,7 +2194,7 @@ Text.Position = UDim2.new(0.0381064788, 0, 0, 0)
 Text.Size = UDim2.new(0.373076916, 0, 1, 0)
 Text.ZIndex = 4
 Text.Font = Enum.Font.Code
-Text.Text = "JakolWare.win"
+Text.Text = "JakolWare"
 Text.TextColor3 = Color3.fromRGB(65025, 65025, 65025)
 Text.TextSize = 14.000
 Text.TextStrokeTransparency = 0.000
@@ -2227,56 +2227,56 @@ UIGradient_2.Parent = Background
 -- Scripts:
 
 local function ZBZX_fake_script() -- Time.LocalScript 
-	local script = Instance.new('LocalScript', Time)
+    local script = Instance.new('LocalScript', Time)
 
-	local mo = "A.M."
-	local mont = nil
-	while wait() do
-		local l = math.fmod(tick(),86400)
-		local h = math.floor(l/3600)
-		local m = math.floor(l/60-h*60)
-		local s = math.floor(math.fmod(l,60))
-		local y = math.floor(1970+tick()/31579200)
-		local mon = {{"January",31,31},{"February",59,28},{"March",90,31},{"April",120,30},{"May",151,31},{"June",181,30},{"July",212,31},{"August",243,31},{"September",273,30},{"October",304,31},{"November",334,30},{"December",365,31}}
-		if y%4 == 0 then
-			mon[2][3] = 29
-			for i,v in pairs(mon) do
-				if i ~= 1 then
-					v[2] = v[2] + 1
-				end
-			end
-		end
-		local d = math.floor(tick()/86400%365.25+1)
-		for i,v in pairs(mon) do
-			if v[2]-v[3]<=d then
-				mont = i
-			end
-		end
-		d = d + mon[mont][3]-mon[mont][2]
-		if m <= 9 then
-			m = "0" ..m
-		end
-		if s <= 9 then
-			s = "0" ..s
-		end
-		if h >= 12 then
-			mo = "P.M."
-		else
-			mo = "A.M."
-		end
-		if h > 12 then
-			h = h - 12
-		end
-		script.Parent.Text = "" ..h.. ":" ..m.. ":" ..s.. " "
-	end
+    local mo = "A.M."
+    local mont = nil
+    while wait() do
+        local l = math.fmod(tick(),86400)
+        local h = math.floor(l/3600)
+        local m = math.floor(l/60-h*60)
+        local s = math.floor(math.fmod(l,60))
+        local y = math.floor(1970+tick()/31579200)
+        local mon = {{"January",31,31},{"February",59,28},{"March",90,31},{"April",120,30},{"May",151,31},{"June",181,30},{"July",212,31},{"August",243,31},{"September",273,30},{"October",304,31},{"November",334,30},{"December",365,31}}
+        if y%4 == 0 then
+            mon[2][3] = 29
+            for i,v in pairs(mon) do
+                if i ~= 1 then
+                    v[2] = v[2] + 1
+                end
+            end
+        end
+        local d = math.floor(tick()/86400%365.25+1)
+        for i,v in pairs(mon) do
+            if v[2]-v[3]<=d then
+                mont = i
+            end
+        end
+        d = d + mon[mont][3]-mon[mont][2]
+        if m <= 9 then
+            m = "0" ..m
+        end
+        if s <= 9 then
+            s = "0" ..s
+        end
+        if h >= 12 then
+            mo = "P.M."
+        else
+            mo = "A.M."
+        end
+        if h > 12 then
+            h = h - 12
+        end
+        script.Parent.Text = "" ..h.. ":" ..m.. ":" ..s.. " "
+    end
 end
 coroutine.wrap(ZBZX_fake_script)()
 local function POWDOGC_fake_script() -- ScreenLabel.LocalScript 
-	local script = Instance.new('LocalScript', ScreenLabel)
+    local script = Instance.new('LocalScript', ScreenLabel)
 
-	local gui = script.Parent
-	
-	gui.Draggable = true
-	gui.Active = true
+    local gui = script.Parent
+    
+    gui.Draggable = true
+    gui.Active = true
 end
 coroutine.wrap(POWDOGC_fake_script)()
