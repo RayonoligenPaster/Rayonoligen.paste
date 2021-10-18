@@ -88,6 +88,6 @@ local function IPHCOT_fake_script() -- welcome.LocalScript
 
 	local plr = game.Players.LocalPlayer
 	
-	script.Parent.Text = "Welcome, "..plr.Name.."To JakolWare (def not paste)."
+	script.Parent.Text = "Welcome, "..plr.Name.." To JakolWare (def not paste)."
 end
 coroutine.wrap(IPHCOT_fake_script)()
