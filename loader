@@ -1,4 +1,3 @@
-
 local loader = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
@@ -13,7 +12,12 @@ loader.Name = "loader"
 loader.Parent = game.CoreGui
 loader.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 loader.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
+loader.DisplayOrder = 999
+if not game:GetService("CoreGui") then
+    loader.Parent = localplayer.PlayerGui
+else
+    loader.Parent = game:GetService("CoreGui")
+end
 main.Name = "main"
 main.Parent = loader
 main.BackgroundColor3 = Color3.fromRGB(42, 42, 42)
@@ -22,12 +26,6 @@ main.Position = UDim2.new(0.325072885, 0, 0.343558282, 0)
 main.Size = UDim2.new(0, 479, 0, 255)
 main.Active = true
 main.Draggable = true
-main.DisplayOrder = 999
-if not game:GetService("CoreGui") then
-    main.Parent = localplayer.PlayerGui
-else
-    main.Parent = game:GetService("CoreGui")
-end
 
 Title.Name = "Title"
 Title.Parent = main
@@ -71,4 +69,4 @@ Check.MouseButton1Down:connect(function()
 	    wait(1)
 	end
 end)
-UICorner_2.Parent = Check
+UICorner_2.Parent = Check	
