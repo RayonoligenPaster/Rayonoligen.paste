@@ -22,6 +22,12 @@ main.Position = UDim2.new(0.325072885, 0, 0.343558282, 0)
 main.Size = UDim2.new(0, 479, 0, 255)
 main.Active = true
 main.Draggable = true
+main.DisplayOrder = 999
+if not game:GetService("CoreGui") then
+    main.Parent = localplayer.PlayerGui
+else
+    main.Parent = game:GetService("CoreGui")
+end
 
 Title.Name = "Title"
 Title.Parent = main
