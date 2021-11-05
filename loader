@@ -1,3 +1,6 @@
+game:WaitForChild("Players")
+game:WaitForChild("Workspace")
+
 local loader = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local Title = Instance.new("TextLabel")
@@ -14,7 +17,7 @@ loader.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 loader.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 loader.DisplayOrder = 999
 if not game:GetService("CoreGui") then
-    loader.Parent = localplayer.PlayerGui
+    loader.Parent = game.Players.LocalPlayer.PlayerGui
 else
     loader.Parent = game:GetService("CoreGui")
 end
@@ -63,10 +66,20 @@ Check.Text = "bully children"
 Check.TextColor3 = Color3.fromRGB(255, 255, 255)
 Check.TextSize = 20.000
 Check.MouseButton1Down:connect(function()
-	if Key.Text == "RuwenSoHorny" or "RayDidintPaste" or "JakolWareWinning" then
-		main.Visible = false
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/RayonoligenPaster/Rayonoligen.paste/main/mainV2", true))()
-	    wait(1)
-	end
+    if Key.Text == "RuwenSoHorny" then
+        main.Visible = false
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/RayonoligenPaster/Rayonoligen.paste/main/mainV2", true))()
+        wait(1)
+    end
+    if Key.Text == "RayDidntPaste" then
+        main.Visible = false
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/RayonoligenPaster/Rayonoligen.paste/main/mainV2", true))()
+        wait(1)
+    end
+    if Key.Text == "JakolWareWinning" then
+        main.Visible = false
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/RayonoligenPaster/Rayonoligen.paste/main/mainV2", true))()
+        wait(1)
+    end
 end)
-UICorner_2.Parent = Check	
+UICorner_2.Parent = Check
